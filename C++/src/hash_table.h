@@ -1,10 +1,11 @@
-#ifndef HASH_TABLE_H  // HASH_TABLE_H
+#ifndef HASH_TABLE_H // HASH_TABLE_H
 #define HASH_TABLE_H
 
 #include <functional>
+#include <iostream>
 
 class HT {
- public:
+public:
   HT() {
     node = new Node *[size];
     for (size_t i = 0; i < size; i++) {
@@ -42,7 +43,7 @@ class HT {
     return newNode->value;
   }
 
- private:
+private:
   struct Node {
     std::string key;
     std::string value;
@@ -50,7 +51,6 @@ class HT {
 
     Node(const std::string &k, const std::string &v)
         : key(k), value(v), next(nullptr) {}
-    ~Node() { delete next; }
   };
 
   Node **node;
@@ -63,4 +63,4 @@ class HT {
   size_t size = 100;
 };
 
-#endif  // HASH_TABLE_H
+#endif // HASH_TABLE_H

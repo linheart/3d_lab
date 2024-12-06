@@ -1,13 +1,13 @@
-#ifndef ARR_H  // ARR_H
+#ifndef ARR_H // ARR_H
 #define ARR_H
 
 #include <cassert>
+#include <iostream>
 
 class Array {
- public:
+public:
   Array(std::size_t initialCapacity = 10)
-      : data(new std::string[initialCapacity]),
-        capacity(initialCapacity),
+      : data(new std::string[initialCapacity]), capacity(initialCapacity),
         length(0) {}
 
   ~Array() { delete[] data; }
@@ -42,7 +42,7 @@ class Array {
     return data[index];
   }
 
- private:
+private:
   std::string *data{};
   std::size_t capacity{};
   std::size_t length{};
@@ -58,4 +58,4 @@ class Array {
   }
 };
 
-#endif  // ARR_H
+#endif // ARR_H

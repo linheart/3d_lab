@@ -1,8 +1,10 @@
-#ifndef TREE_H  // TREE_H
+#ifndef TREE_H // TREE_H
 #define TREE_H
 
+#include <iostream>
+
 class Tree {
- public:
+public:
   Tree() : root(nullptr) {}
 
   ~Tree() { freeTree(root); }
@@ -15,7 +17,7 @@ class Tree {
 
   void print() const { printTree("", root); }
 
- private:
+private:
   struct Node {
     int key;
     int height;
@@ -170,4 +172,4 @@ class Tree {
   }
 };
 
-#endif  // TREE_H
+#endif // TREE_H

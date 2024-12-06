@@ -1,7 +1,10 @@
-#ifndef LIST_H  // LIST_H
+#ifndef LIST_H // LIST_H
 #define LIST_H
 
+#include <iostream>
+
 class SinglyLinkedList {
+public:
   SinglyLinkedList() : head(nullptr) {}
 
   ~SinglyLinkedList() {
@@ -33,7 +36,8 @@ class SinglyLinkedList {
   }
 
   void removeHead() {
-    if (!head) return;
+    if (!head)
+      return;
 
     Node *tmp = head;
     head = head->next;
@@ -41,7 +45,8 @@ class SinglyLinkedList {
   }
 
   void removeTail() {
-    if (!head) return;
+    if (!head)
+      return;
 
     if (!head->next) {
       delete head;
@@ -59,7 +64,8 @@ class SinglyLinkedList {
   }
 
   void removeByValue(std::string value) {
-    if (!head) return;
+    if (!head)
+      return;
 
     if (head->value == value) {
       removeHead();
@@ -98,7 +104,7 @@ class SinglyLinkedList {
     std::cout << std::endl;
   }
 
- private:
+private:
   struct Node {
     std::string value;
     Node *next;
@@ -107,12 +113,10 @@ class SinglyLinkedList {
   };
 
   Node *head;
-
- public:
 };
 
 class DoublyLinkedList {
- public:
+public:
   DoublyLinkedList() : head(nullptr), tail(nullptr) {}
 
   ~DoublyLinkedList() {
@@ -151,7 +155,8 @@ class DoublyLinkedList {
   }
 
   void removeHead() {
-    if (!head) return;
+    if (!head)
+      return;
 
     Node *tmp = head;
     head = head->next;
@@ -166,7 +171,8 @@ class DoublyLinkedList {
   }
 
   void removeTail() {
-    if (!tail) return;
+    if (!tail)
+      return;
 
     Node *tmp = tail;
     tail = tail->prev;
@@ -181,7 +187,8 @@ class DoublyLinkedList {
   }
 
   void removeByValue(std::string value) {
-    if (!head) return;
+    if (!head)
+      return;
 
     if (head->value == value) {
       removeHead();
@@ -229,7 +236,7 @@ class DoublyLinkedList {
     std::cout << std::endl;
   }
 
- private:
+private:
   struct Node {
     std::string value;
     Node *next;
@@ -242,4 +249,4 @@ class DoublyLinkedList {
   Node *tail;
 };
 
-#endif  // LIST_H
+#endif // LIST_H

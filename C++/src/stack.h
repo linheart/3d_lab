@@ -1,10 +1,10 @@
-#ifndef STACK_H  // STACK_H
+#ifndef STACK_H // STACK_H
 #define STACK_H
 
-#include <cassert>
+#include <iostream>
 
 class Stack {
- public:
+public:
   Stack() : topNode(nullptr) {}
 
   ~Stack() {
@@ -16,7 +16,9 @@ class Stack {
   void push(const std::string &value) { topNode = new Node(value, topNode); }
 
   void pop() {
-    assert(!isEmpty());
+    if (isEmpty()) {
+      throw std::underflow_error("Stack is empty");
+    }
 
     Node *tmp = topNode;
     topNode = topNode->next;
@@ -25,13 +27,15 @@ class Stack {
   }
 
   std::string top() const {
-    assert(!isEmpty());
+    if (isEmpty()) {
+      throw std::underflow_error("Stack is empty");
+    }
     return topNode->data;
   }
 
   bool isEmpty() const { return topNode == nullptr; }
 
- private:
+private:
   struct Node {
     std::string data;
     Node *next;
@@ -43,4 +47,4 @@ class Stack {
   Node *topNode;
 };
 
-#endif  // STACK_H
+#endif // STACK_H

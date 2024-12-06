@@ -1,10 +1,10 @@
-#ifndef QUEUE_H  // QUEUE_H
+#ifndef QUEUE_H // QUEUE_H
 #define QUEUE_H
 
-#include <cassert>
+#include <iostream>
 
 class Queue {
- public:
+public:
   Queue() : frontNode(nullptr), rearNode(nullptr) {}
 
   ~Queue() {
@@ -25,7 +25,9 @@ class Queue {
   }
 
   void pop() {
-    assert(!isEmpty());
+    if (isEmpty()) {
+      throw std::overflow_error("Queue is empty");
+    }
 
     Node *tmp = frontNode;
     frontNode = frontNode->next;
@@ -38,13 +40,15 @@ class Queue {
   }
 
   std::string front() const {
-    assert(!isEmpty());
+    if (isEmpty()) {
+      throw std::overflow_error("Queue is empty");
+    }
     return frontNode->data;
   }
 
   bool isEmpty() const { return frontNode == nullptr; }
 
- private:
+private:
   struct Node {
     std::string data;
     Node *next;
@@ -56,4 +60,4 @@ class Queue {
   Node *rearNode;
 };
 
-#endif  // QUEUE_H
+#endif // QUEUE_H
