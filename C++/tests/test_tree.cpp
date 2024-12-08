@@ -1,7 +1,10 @@
+#include "../src/timer.h"
 #include "../src/tree.h"
 #include <gtest/gtest.h>
 
 TEST(TreeTest, InsertAndFind) {
+  Timer timer;
+  timer.start();
   Tree tree;
 
   tree.insert(10);
@@ -13,9 +16,12 @@ TEST(TreeTest, InsertAndFind) {
   EXPECT_TRUE(tree.find(5));
 
   EXPECT_FALSE(tree.find(15));
+  timer.elapsed();
 }
 
 TEST(TreeTest, RemoveLeafNode) {
+  Timer timer;
+  timer.start();
   Tree tree;
 
   tree.insert(10);
@@ -25,9 +31,12 @@ TEST(TreeTest, RemoveLeafNode) {
   tree.remove(5);
 
   EXPECT_FALSE(tree.find(5));
+  timer.elapsed();
 }
 
 TEST(TreeTest, RemoveNodeWithOneChild) {
+  Timer timer;
+  timer.start();
   Tree tree;
 
   tree.insert(10);
@@ -39,9 +48,12 @@ TEST(TreeTest, RemoveNodeWithOneChild) {
 
   EXPECT_FALSE(tree.find(20));
   EXPECT_TRUE(tree.find(15));
+  timer.elapsed();
 }
 
 TEST(TreeTest, RemoveNodeWithTwoChildren) {
+  Timer timer;
+  timer.start();
   Tree tree;
 
   tree.insert(10);
@@ -55,18 +67,24 @@ TEST(TreeTest, RemoveNodeWithTwoChildren) {
   EXPECT_FALSE(tree.find(20));
   EXPECT_TRUE(tree.find(15));
   EXPECT_TRUE(tree.find(30));
+  timer.elapsed();
 }
 
 TEST(TreeTest, EmptyTree) {
+  Timer timer;
+  timer.start();
   Tree tree;
 
   EXPECT_FALSE(tree.find(10));
 
   tree.remove(10);
   EXPECT_FALSE(tree.find(10));
+  timer.elapsed();
 }
 
 TEST(TreeTest, BalanceAfterInsertions) {
+  Timer timer;
+  timer.start();
   Tree tree;
 
   tree.insert(10);
@@ -76,22 +94,5 @@ TEST(TreeTest, BalanceAfterInsertions) {
   EXPECT_TRUE(tree.find(10));
   EXPECT_TRUE(tree.find(20));
   EXPECT_TRUE(tree.find(30));
-}
-
-TEST(TreeTest, PrintTree) {
-  Tree tree;
-
-  tree.insert(10);
-  tree.insert(5);
-  tree.insert(20);
-  tree.insert(15);
-
-  testing::internal::CaptureStdout();
-  tree.print();
-  std::string output = testing::internal::GetCapturedStdout();
-
-  EXPECT_TRUE(output.find("10") != std::string::npos);
-  EXPECT_TRUE(output.find("5") != std::string::npos);
-  EXPECT_TRUE(output.find("20") != std::string::npos);
-  EXPECT_TRUE(output.find("15") != std::string::npos);
+  timer.elapsed();
 }

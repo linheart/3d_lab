@@ -1,7 +1,10 @@
 #include "../src/list.h"
+#include "../src/timer.h"
 #include <gtest/gtest.h>
 
 TEST(SinglyLinkedListTest, AddHead) {
+  Timer timer;
+  timer.start();
   SinglyLinkedList list;
   list.addHead("First");
   list.addHead("Second");
@@ -11,9 +14,12 @@ TEST(SinglyLinkedListTest, AddHead) {
   std::string output = testing::internal::GetCapturedStdout();
 
   EXPECT_EQ(output, "Second First \n");
+  timer.elapsed();
 }
 
 TEST(SinglyLinkedListTest, AddTail) {
+  Timer timer;
+  timer.start();
   SinglyLinkedList list;
   list.addTail("First");
   list.addTail("Second");
@@ -23,9 +29,12 @@ TEST(SinglyLinkedListTest, AddTail) {
   std::string output = testing::internal::GetCapturedStdout();
 
   EXPECT_EQ(output, "First Second \n");
+  timer.elapsed();
 }
 
 TEST(SinglyLinkedListTest, RemoveHead) {
+  Timer timer;
+  timer.start();
   SinglyLinkedList list;
   list.addHead("First");
   list.addHead("Second");
@@ -36,9 +45,12 @@ TEST(SinglyLinkedListTest, RemoveHead) {
   std::string output = testing::internal::GetCapturedStdout();
 
   EXPECT_EQ(output, "First \n");
+  timer.elapsed();
 }
 
 TEST(SinglyLinkedListTest, RemoveTail) {
+  Timer timer;
+  timer.start();
   SinglyLinkedList list;
   list.addHead("First");
   list.addHead("Second");
@@ -49,9 +61,12 @@ TEST(SinglyLinkedListTest, RemoveTail) {
   std::string output = testing::internal::GetCapturedStdout();
 
   EXPECT_EQ(output, "Second \n");
+  timer.elapsed();
 }
 
 TEST(SinglyLinkedListTest, RemoveByValue) {
+  Timer timer;
+  timer.start();
   SinglyLinkedList list;
   list.addHead("First");
   list.addHead("Second");
@@ -62,18 +77,24 @@ TEST(SinglyLinkedListTest, RemoveByValue) {
   std::string output = testing::internal::GetCapturedStdout();
 
   EXPECT_EQ(output, "Second \n");
+  timer.elapsed();
 }
 
 TEST(SinglyLinkedListTest, Search) {
+  Timer timer;
+  timer.start();
   SinglyLinkedList list;
   list.addHead("First");
   list.addHead("Second");
 
   EXPECT_TRUE(list.search("First"));
   EXPECT_FALSE(list.search("NonExistent"));
+  timer.elapsed();
 }
 
 TEST(DoublyLinkedListTest, AddHead) {
+  Timer timer;
+  timer.start();
   DoublyLinkedList list;
   list.addHead("First");
   list.addHead("Second");
@@ -83,9 +104,12 @@ TEST(DoublyLinkedListTest, AddHead) {
   std::string output = testing::internal::GetCapturedStdout();
 
   EXPECT_EQ(output, "Second First \n");
+  timer.elapsed();
 }
 
 TEST(DoublyLinkedListTest, AddTail) {
+  Timer timer;
+  timer.start();
   DoublyLinkedList list;
   list.addTail("First");
   list.addTail("Second");
@@ -95,9 +119,12 @@ TEST(DoublyLinkedListTest, AddTail) {
   std::string output = testing::internal::GetCapturedStdout();
 
   EXPECT_EQ(output, "First Second \n");
+  timer.elapsed();
 }
 
 TEST(DoublyLinkedListTest, RemoveHead) {
+  Timer timer;
+  timer.start();
   DoublyLinkedList list;
   list.addHead("First");
   list.addHead("Second");
@@ -108,9 +135,12 @@ TEST(DoublyLinkedListTest, RemoveHead) {
   std::string output = testing::internal::GetCapturedStdout();
 
   EXPECT_EQ(output, "First \n");
+  timer.elapsed();
 }
 
 TEST(DoublyLinkedListTest, RemoveTail) {
+  Timer timer;
+  timer.start();
   DoublyLinkedList list;
   list.addHead("First");
   list.addHead("Second");
@@ -121,9 +151,12 @@ TEST(DoublyLinkedListTest, RemoveTail) {
   std::string output = testing::internal::GetCapturedStdout();
 
   EXPECT_EQ(output, "Second \n");
+  timer.elapsed();
 }
 
 TEST(DoublyLinkedListTest, RemoveByValue) {
+  Timer timer;
+  timer.start();
   DoublyLinkedList list;
   list.addHead("First");
   list.addHead("Second");
@@ -134,13 +167,17 @@ TEST(DoublyLinkedListTest, RemoveByValue) {
   std::string output = testing::internal::GetCapturedStdout();
 
   EXPECT_EQ(output, "Second \n");
+  timer.elapsed();
 }
 
 TEST(DoublyLinkedListTest, Search) {
+  Timer timer;
+  timer.start();
   DoublyLinkedList list;
   list.addHead("First");
   list.addHead("Second");
 
   EXPECT_TRUE(list.search("First"));
   EXPECT_FALSE(list.search("NonExistent"));
+  timer.elapsed();
 }

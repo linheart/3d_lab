@@ -14,7 +14,7 @@ public:
               << std::chrono::duration_cast<std::chrono::duration<double>>(
                      endTime - startTime)
                      .count()
-              << std::endl;
+              << " seconds" << std::endl;
   }
 
 private:
