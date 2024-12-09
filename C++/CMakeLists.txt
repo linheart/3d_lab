@@ -21,7 +21,6 @@ set(SRC_FILES
   src/arr.cpp
   src/hash_table.cpp
   src/list.cpp
-  src/main.cpp
   src/queue.cpp
   src/stack.cpp
   src/tree.cpp
@@ -29,7 +28,11 @@ set(SRC_FILES
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
-add_executable(ser ${SRC_FILES})
+foreach(SRC_FILE ${SRC_FILES})
+    get_filename_component(EXE_NAME ${SRC_FILE} NAME_WE) 
+    add_executable(${EXE_NAME} ${SRC_FILE})
+endforeach()
+
 add_executable(tests ${TEST_FILES})
 
 find_package(GTest REQUIRED)
