@@ -1,7 +1,6 @@
-package main
+package hash_table
 
 import (
-	"fmt"
 	"hash/fnv"
 )
 
@@ -25,7 +24,7 @@ func NewHT() *HT {
 func (ht *HT) hashFunction(key string) uint32 {
 	h := fnv.New32a()
 	h.Write([]byte(key))
-	return h.Sum32() % size
+	return h.Sum32() % uint32(size)
 }
 
 func (ht *HT) Get(key string) string {
@@ -47,10 +46,4 @@ func (ht *HT) Set(key, value string) {
 	newNode := &Node{key, value, nil}
 	newNode.next = ht.node[index]
 	ht.node[index] = newNode
-}
-
-func main() {
-	ht := NewHT()
-	ht.Set("asd", "fds")
-	fmt.Println(ht.Get("asd"))
 }
