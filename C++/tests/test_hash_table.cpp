@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 
-#include "../src/hash_table.h"
-#include "../src/timer.h"
+#include "../include/hash_table.h"
+#include "../include/timer.h"
 
 TEST(HashTableTest, ConstructorDestructor) {
   Timer timer;

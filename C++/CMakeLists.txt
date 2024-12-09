@@ -8,16 +8,6 @@ if (ENABLE_COVERAGE)
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --coverage")
 endif()
 
-set(SRC_FILES
-    src/arr.h
-    src/hash_table.h
-    src/list.h
-    src/queue.h
-    src/stack.h
-    src/timer.h
-    src/tree.h
-)
-
 set(TEST_FILES
   tests/test_arr.cpp
   tests/test_hash_table.cpp
@@ -27,10 +17,20 @@ set(TEST_FILES
   tests/test_tree.cpp
 )
 
-add_executable(tests
-    ${TEST_FILES}
-    ${SRC_FILES}
+set(SRC_FILES 
+  src/arr.cpp
+  src/hash_table.cpp
+  src/list.cpp
+  src/main.cpp
+  src/queue.cpp
+  src/stack.cpp
+  src/tree.cpp
 )
+
+include_directories(${CMAKE_SOURCE_DIR}/include)
+
+add_executable(ser ${SRC_FILES})
+add_executable(tests ${TEST_FILES})
 
 find_package(GTest REQUIRED)
 target_link_libraries(tests GTest::GTest GTest::Main)
@@ -39,7 +39,8 @@ if (ENABLE_COVERAGE)
     add_custom_target(coverage
         COMMAND ${CMAKE_COMMAND} -E remove -f coverage.info
         COMMAND lcov --capture --directory . --output-file coverage.info --rc geninfo_unexecuted_blocks=1 --ignore-errors mismatch
-        COMMAND genhtml coverage.info --output-directory coverage_html
+        COMMAND lcov --remove coverage.info "*/c++/13/*" "gtest*" -o coverage_filtered.info
+        COMMAND genhtml coverage_filtered.info --output-directory coverage_html
         WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
     )
 endif()

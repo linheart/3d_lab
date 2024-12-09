@@ -1,6 +1,7 @@
-#include "../src/timer.h"
-#include "../src/tree.h"
 #include <gtest/gtest.h>
+
+#include "../include/timer.h"
+#include "../include/tree.h"
 
 TEST(TreeTest, InsertAndFind) {
   Timer timer;

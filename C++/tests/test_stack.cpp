@@ -1,6 +1,7 @@
-#include "../src/stack.h"
-#include "../src/timer.h"
 #include <gtest/gtest.h>
+
+#include "../include/stack.h"
+#include "../include/timer.h"
 
 TEST(StackTest, PushAndPop) {
   Timer timer;

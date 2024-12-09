@@ -1,6 +1,7 @@
-#include "../src/arr.h"
-#include "../src/timer.h"
 #include <gtest/gtest.h>
+
+#include "../include/arr.h"
+#include "../include/timer.h"
 
 TEST(ArrayTest, ConstructorAndSize) {
   Timer timer;

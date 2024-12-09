@@ -1,6 +1,7 @@
-#include "../src/list.h"
-#include "../src/timer.h"
 #include <gtest/gtest.h>
+
+#include "../include/list.h"
+#include "../include/timer.h"
 
 TEST(SinglyLinkedListTest, AddHead) {
   Timer timer;

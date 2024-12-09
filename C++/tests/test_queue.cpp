@@ -1,6 +1,7 @@
-#include "../src/queue.h"
-#include "../src/timer.h"
 #include <gtest/gtest.h>
+
+#include "../include/queue.h"
+#include "../include/timer.h"
 
 TEST(QueueTest, PushAndFront) {
   Timer timer;
