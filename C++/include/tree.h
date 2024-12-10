@@ -1,10 +1,10 @@
-#ifndef TREE_H // TREE_H
+#ifndef TREE_H  // TREE_H
 #define TREE_H
 
 #include <iostream>
 
 class Tree {
-public:
+ public:
   Tree() : root(nullptr) {}
 
   ~Tree() { freeTree(root); }
@@ -17,7 +17,13 @@ public:
 
   void print() const { printTree("", root); }
 
-private:
+  void serializeBinary(const std::string &filename) const;
+  void deserializeBinary(const std::string &filename);
+
+  void serializeText(const std::string &filename) const;
+  void deserializeText(const std::string &filename);
+
+ private:
   struct Node {
     int key;
     int height;
@@ -172,4 +178,4 @@ private:
   }
 };
 
-#endif // TREE_H
+#endif  // TREE_H

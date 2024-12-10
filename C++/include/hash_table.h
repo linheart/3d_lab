@@ -1,11 +1,11 @@
-#ifndef HASH_TABLE_H // HASH_TABLE_H
+#ifndef HASH_TABLE_H  // HASH_TABLE_H
 #define HASH_TABLE_H
 
 #include <functional>
 #include <iostream>
 
 class HT {
-public:
+ public:
   HT() {
     node = new Node *[size];
     for (size_t i = 0; i < size; i++) {
@@ -43,7 +43,13 @@ public:
     return newNode->value;
   }
 
-private:
+  void serializeBinary(const std::string &filename) const;
+  void deserializeBinary(const std::string &filename);
+
+  void serializeText(const std::string &filename) const;
+  void deserializeText(const std::string &filename);
+
+ private:
   struct Node {
     std::string key;
     std::string value;
@@ -63,4 +69,4 @@ private:
   size_t size = 100;
 };
 
-#endif // HASH_TABLE_H
+#endif  // HASH_TABLE_H

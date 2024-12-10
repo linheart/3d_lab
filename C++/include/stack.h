@@ -1,10 +1,10 @@
-#ifndef STACK_H // STACK_H
+#ifndef STACK_H  // STACK_H
 #define STACK_H
 
 #include <iostream>
 
 class Stack {
-public:
+ public:
   Stack() : topNode(nullptr) {}
 
   ~Stack() {
@@ -35,7 +35,13 @@ public:
 
   bool isEmpty() const { return topNode == nullptr; }
 
-private:
+  void serializeBinary(const std::string &filename) const;
+  void deserializeBinary(const std::string &filename);
+
+  void serializeText(const std::string &filename) const;
+  void deserializeText(const std::string &filename);
+
+ private:
   struct Node {
     std::string data;
     Node *next;
@@ -47,4 +53,4 @@ private:
   Node *topNode;
 };
 
-#endif // STACK_H
+#endif  // STACK_H

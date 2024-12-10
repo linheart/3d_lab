@@ -1,10 +1,10 @@
-#ifndef QUEUE_H // QUEUE_H
+#ifndef QUEUE_H  // QUEUE_H
 #define QUEUE_H
 
 #include <iostream>
 
 class Queue {
-public:
+ public:
   Queue() : frontNode(nullptr), rearNode(nullptr) {}
 
   ~Queue() {
@@ -48,7 +48,13 @@ public:
 
   bool isEmpty() const { return frontNode == nullptr; }
 
-private:
+  void serializeBinary(const std::string &filename) const;
+  void deserializeBinary(const std::string &filename);
+
+  void serializeText(const std::string &filename) const;
+  void deserializeText(const std::string &filename);
+
+ private:
   struct Node {
     std::string data;
     Node *next;
@@ -60,4 +66,4 @@ private:
   Node *rearNode;
 };
 
-#endif // QUEUE_H
+#endif  // QUEUE_H

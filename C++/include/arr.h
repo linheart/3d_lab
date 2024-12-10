@@ -1,13 +1,14 @@
-#ifndef ARR_H // ARR_H
+#ifndef ARR_H  // ARR_H
 #define ARR_H
 
 #include <cassert>
 #include <iostream>
 
 class Array {
-public:
+ public:
   Array(std::size_t initialCapacity = 10)
-      : data(new std::string[initialCapacity]), capacity(initialCapacity),
+      : data(new std::string[initialCapacity]),
+        capacity(initialCapacity),
         length(0) {}
 
   ~Array() { delete[] data; }
@@ -42,7 +43,13 @@ public:
     return data[index];
   }
 
-private:
+  void serializeBinary(const std::string &filename) const;
+  void deserializeBinary(const std::string &filename);
+
+  void serializeText(const std::string &filename) const;
+  void deserializeText(const std::string &filename);
+
+ private:
   std::string *data{};
   std::size_t capacity{};
   std::size_t length{};
@@ -58,4 +65,4 @@ private:
   }
 };
 
-#endif // ARR_H
+#endif  // ARR_H
