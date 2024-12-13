@@ -1,10 +1,10 @@
-#ifndef LIST_H // LIST_H
+#ifndef LIST_H  // LIST_H
 #define LIST_H
 
 #include <iostream>
 
 class SinglyLinkedList {
-public:
+ public:
   SinglyLinkedList() : head(nullptr) {}
 
   ~SinglyLinkedList() {
@@ -36,8 +36,7 @@ public:
   }
 
   void removeHead() {
-    if (!head)
-      return;
+    if (!head) return;
 
     Node *tmp = head;
     head = head->next;
@@ -45,8 +44,7 @@ public:
   }
 
   void removeTail() {
-    if (!head)
-      return;
+    if (!head) return;
 
     if (!head->next) {
       delete head;
@@ -64,8 +62,7 @@ public:
   }
 
   void removeByValue(std::string value) {
-    if (!head)
-      return;
+    if (!head) return;
 
     if (head->value == value) {
       removeHead();
@@ -104,7 +101,13 @@ public:
     std::cout << std::endl;
   }
 
-private:
+  void serializeBinary(const std::string &filename) const;
+  void deserializeBinary(const std::string &filename);
+
+  void serializeText(const std::string &filename) const;
+  void deserializeText(const std::string &filename);
+
+ private:
   struct Node {
     std::string value;
     Node *next;
@@ -116,7 +119,7 @@ private:
 };
 
 class DoublyLinkedList {
-public:
+ public:
   DoublyLinkedList() : head(nullptr), tail(nullptr) {}
 
   ~DoublyLinkedList() {
@@ -155,8 +158,7 @@ public:
   }
 
   void removeHead() {
-    if (!head)
-      return;
+    if (!head) return;
 
     Node *tmp = head;
     head = head->next;
@@ -171,8 +173,7 @@ public:
   }
 
   void removeTail() {
-    if (!tail)
-      return;
+    if (!tail) return;
 
     Node *tmp = tail;
     tail = tail->prev;
@@ -187,8 +188,7 @@ public:
   }
 
   void removeByValue(std::string value) {
-    if (!head)
-      return;
+    if (!head) return;
 
     if (head->value == value) {
       removeHead();
@@ -236,7 +236,13 @@ public:
     std::cout << std::endl;
   }
 
-private:
+  void serializeBinary(const std::string &filename) const;
+  void deserializeBinary(const std::string &filename);
+
+  void serializeText(const std::string &filename) const;
+  void deserializeText(const std::string &filename);
+
+ private:
   struct Node {
     std::string value;
     Node *next;
@@ -249,4 +255,4 @@ private:
   Node *tail;
 };
 
-#endif // LIST_H
+#endif  // LIST_H

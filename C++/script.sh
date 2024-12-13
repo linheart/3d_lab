@@ -15,7 +15,8 @@ mkdir -p $EXEC_DIR
 
 for exe in *; do
     if [ -f "$exe" ] && [ -x "$exe" ] && [ "$exe" != "tests" ]; then
-        mv "$exe" "$EXEC_DIR"
+        mkdir -p "$EXEC_DIR/$exe"
+        mv "$exe" "$EXEC_DIR/$exe"
     fi
 done
 
