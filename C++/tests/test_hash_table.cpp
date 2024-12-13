@@ -43,8 +43,8 @@ TEST(HashTableTest, HandleCollisions) {
   timer.start();
   HT ht;
 
-  std::string key1 = "key1";
-  std::string key2 = "key2";
+  std::string key1 = "000";
+  std::string key2 = "369";
 
   ht[key1] = "value1";
   ht[key2] = "value2";

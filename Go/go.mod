@@ -1,3 +1,3 @@
-module hash_table
+module my_project
 
 go 1.22.2

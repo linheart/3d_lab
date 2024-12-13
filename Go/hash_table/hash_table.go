@@ -7,13 +7,13 @@ import (
 const size = 100
 
 type HT struct {
-	node []*Node
+	Node []*Node
 }
 
 type Node struct {
-	key   string
-	value string
-	next  *Node
+	Key   string
+	Value string
+	Next  *Node
 }
 
 func NewHT() *HT {
@@ -29,13 +29,13 @@ func (ht *HT) hashFunction(key string) uint32 {
 
 func (ht *HT) Get(key string) string {
 	index := ht.hashFunction(key)
-	current := ht.node[index]
+	current := ht.Node[index]
 
 	for current != nil {
-		if current.key == key {
-			return current.value
+		if current.Key == key {
+			return current.Value
 		}
-		current = current.next
+		current = current.Next
 	}
 
 	return ""
@@ -44,6 +44,7 @@ func (ht *HT) Get(key string) string {
 func (ht *HT) Set(key, value string) {
 	index := ht.hashFunction(key)
 	newNode := &Node{key, value, nil}
-	newNode.next = ht.node[index]
-	ht.node[index] = newNode
+	newNode.Next = ht.Node[index]
+	ht.Node[index] = newNode
 }
+
