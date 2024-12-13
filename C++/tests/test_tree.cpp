@@ -91,9 +91,17 @@ TEST(TreeTest, BalanceAfterInsertions) {
   tree.insert(10);
   tree.insert(20);
   tree.insert(30);
+  tree.insert(5);
+  tree.insert(2);
 
   EXPECT_TRUE(tree.find(10));
   EXPECT_TRUE(tree.find(20));
   EXPECT_TRUE(tree.find(30));
+  EXPECT_TRUE(tree.find(5));
+  EXPECT_TRUE(tree.find(2));
+
+  EXPECT_FALSE(tree.find(100));
+  EXPECT_FALSE(tree.find(-1));
+
   timer.elapsed();
 }
